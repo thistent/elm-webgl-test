@@ -58,7 +58,7 @@ view theta =
         , El.height El.fill
         , Bg.gradient
             { angle = theta * 10 - theta * 4
-            , steps = [ El.rgb 0.3 0 0.4, El.rgb 0 0.4 0.6 ]
+            , steps = [ El.rgb 0.15 0 0.3, El.rgb 0 0.3 0.6 ]
             }
         ]
     <|
@@ -108,7 +108,7 @@ uniforms theta =
             (Mat4.makeRotate (10 * theta) (vec3 0 1 0))
             (Mat4.makeRotate (4 * theta) (vec3 1 0 0))
     , perspective = Mat4.makePerspective 45 1 0.01 100
-    , camera = Mat4.makeLookAt (vec3 0 0 5) (vec3 0 0 0) (vec3 0 1 0)
+    , camera = Mat4.makeLookAt (vec3 0 0 3) (vec3 0 0 0) (vec3 0 1 0)
     , shade = 0.9
     }
 

@@ -13730,7 +13730,7 @@ var $author$project$Main$uniforms = function (theta) {
 	return {
 		bb: A3(
 			$elm_explorations$linear_algebra$Math$Matrix4$makeLookAt,
-			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 5),
+			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 3),
 			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 0),
 			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 1, 0)),
 		bV: A4($elm_explorations$linear_algebra$Math$Matrix4$makePerspective, 45, 1, 0.01, 100),
@@ -13770,8 +13770,8 @@ var $author$project$Main$view = function (theta) {
 					ct: (theta * 10) - (theta * 4),
 					dG: _List_fromArray(
 						[
-							A3($mdgriffith$elm_ui$Element$rgb, 0.3, 0, 0.4),
-							A3($mdgriffith$elm_ui$Element$rgb, 0, 0.4, 0.6)
+							A3($mdgriffith$elm_ui$Element$rgb, 0.15, 0, 0.3),
+							A3($mdgriffith$elm_ui$Element$rgb, 0, 0.3, 0.6)
 						])
 				})
 			]),
