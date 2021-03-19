@@ -58,7 +58,7 @@ view theta =
         , El.height El.fill
         , Bg.gradient
             { angle = theta * 10 - theta * 4
-            , steps = [ El.rgb 1 0 0, El.rgb 0 0 1 ]
+            , steps = [ El.rgb 0.3 0 0.4, El.rgb 0 0.4 0.6 ]
             }
         ]
     <|
@@ -323,7 +323,7 @@ fragmentShader =
         uniform float shade;
         varying vec3 vcolor;
         void main () {
-            gl_FragColor = shade * vec4(vcolor, 0.5);
+            gl_FragColor = shade * vec4(vcolor, 0.25);
         }
 
     |]
