@@ -80,8 +80,8 @@ view theta =
                 <|
                     El.html <|
                         WebGL.toHtml
-                            [ width 500
-                            , height 500
+                            [ width 600
+                            , height 600
                             , style "display" "block"
                             ]
                             [ WebGL.entity
@@ -108,7 +108,7 @@ uniforms theta =
             (Mat4.makeRotate (10 * theta) (vec3 0 1 0))
             (Mat4.makeRotate (4 * theta) (vec3 1 0 0))
     , perspective = Mat4.makePerspective 45 1 0.01 100
-    , camera = Mat4.makeLookAt (vec3 0 0 3) (vec3 0 0 0) (vec3 0 1 0)
+    , camera = Mat4.makeLookAt (vec3 0 0 3.5) (vec3 0 0 0) (vec3 0 1 0)
     , shade = 0.9
     }
 

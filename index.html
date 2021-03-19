@@ -13755,7 +13755,7 @@ var $author$project$Main$uniforms = function (theta) {
 	return {
 		camera: A3(
 			$elm_explorations$linear_algebra$Math$Matrix4$makeLookAt,
-			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 3),
+			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 3.5),
 			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 0),
 			A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 1, 0)),
 		perspective: A4($elm_explorations$linear_algebra$Math$Matrix4$makePerspective, 45, 1, 0.01, 100),
@@ -13835,8 +13835,8 @@ var $author$project$Main$view = function (theta) {
 								$elm_explorations$webgl$WebGL$toHtml,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$width(500),
-										$elm$html$Html$Attributes$height(500),
+										$elm$html$Html$Attributes$width(600),
+										$elm$html$Html$Attributes$height(600),
 										A2($elm$html$Html$Attributes$style, 'display', 'block')
 									]),
 								_List_fromArray(
