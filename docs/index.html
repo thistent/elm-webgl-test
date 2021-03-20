@@ -4371,43 +4371,6 @@ function _Browser_load(url)
 }
 
 
-
-var _Bitwise_and = F2(function(a, b)
-{
-	return a & b;
-});
-
-var _Bitwise_or = F2(function(a, b)
-{
-	return a | b;
-});
-
-var _Bitwise_xor = F2(function(a, b)
-{
-	return a ^ b;
-});
-
-function _Bitwise_complement(a)
-{
-	return ~a;
-};
-
-var _Bitwise_shiftLeftBy = F2(function(offset, a)
-{
-	return a << offset;
-});
-
-var _Bitwise_shiftRightBy = F2(function(offset, a)
-{
-	return a >> offset;
-});
-
-var _Bitwise_shiftRightZfBy = F2(function(offset, a)
-{
-	return a >>> offset;
-});
-
-
 /*
  * Copyright (c) 2010 Mozilla Corporation
  * Copyright (c) 2010 Vladimir Vukicevic
@@ -5419,6 +5382,43 @@ var _MJS_m4x4makeBasis = F3(function(vx, vy, vz) {
     r[15] = 1;
 
     return r;
+});
+
+
+
+var _Bitwise_and = F2(function(a, b)
+{
+	return a & b;
+});
+
+var _Bitwise_or = F2(function(a, b)
+{
+	return a | b;
+});
+
+var _Bitwise_xor = F2(function(a, b)
+{
+	return a ^ b;
+});
+
+function _Bitwise_complement(a)
+{
+	return ~a;
+};
+
+var _Bitwise_shiftLeftBy = F2(function(offset, a)
+{
+	return a << offset;
+});
+
+var _Bitwise_shiftRightBy = F2(function(offset, a)
+{
+	return a >> offset;
+});
+
+var _Bitwise_shiftRightZfBy = F2(function(offset, a)
+{
+	return a >>> offset;
 });
 
 
@@ -7179,6 +7179,78 @@ var $elm$browser$Browser$AnimationManager$onAnimationFrameDelta = function (tagg
 };
 var $elm$browser$Browser$Events$onAnimationFrameDelta = $elm$browser$Browser$AnimationManager$onAnimationFrameDelta;
 var $elm$json$Json$Decode$value = _Json_decodeValue;
+var $elm_explorations$linear_algebra$Math$Vector3$vec3 = _MJS_v3;
+var $author$project$Main$black = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 0);
+var $author$project$Main$blocksOne = _List_fromArray(
+	[
+		_Utils_Tuple3(0, 0, 0),
+		_Utils_Tuple3(0, 0, 1),
+		_Utils_Tuple3(0, 0, 2),
+		_Utils_Tuple3(0, 0, 3),
+		_Utils_Tuple3(0, 1, 0),
+		_Utils_Tuple3(0, 1, 1),
+		_Utils_Tuple3(0, 1, 2),
+		_Utils_Tuple3(0, 1, 3),
+		_Utils_Tuple3(0, 2, 0),
+		_Utils_Tuple3(0, 2, 1),
+		_Utils_Tuple3(0, 2, 2),
+		_Utils_Tuple3(0, 2, 3),
+		_Utils_Tuple3(0, 3, 0),
+		_Utils_Tuple3(0, 3, 1),
+		_Utils_Tuple3(0, 3, 2),
+		_Utils_Tuple3(0, 3, 3),
+		_Utils_Tuple3(1, 0, 0),
+		_Utils_Tuple3(1, 0, 1),
+		_Utils_Tuple3(1, 0, 2),
+		_Utils_Tuple3(1, 0, 3),
+		_Utils_Tuple3(1, 1, 0),
+		_Utils_Tuple3(1, 1, 3),
+		_Utils_Tuple3(1, 2, 0),
+		_Utils_Tuple3(1, 2, 3),
+		_Utils_Tuple3(1, 3, 0),
+		_Utils_Tuple3(1, 3, 1),
+		_Utils_Tuple3(1, 3, 2),
+		_Utils_Tuple3(1, 3, 3),
+		_Utils_Tuple3(2, 0, 0),
+		_Utils_Tuple3(2, 0, 1),
+		_Utils_Tuple3(2, 0, 2),
+		_Utils_Tuple3(2, 0, 3),
+		_Utils_Tuple3(2, 1, 0),
+		_Utils_Tuple3(2, 1, 3),
+		_Utils_Tuple3(2, 2, 0),
+		_Utils_Tuple3(2, 2, 3),
+		_Utils_Tuple3(2, 3, 0),
+		_Utils_Tuple3(2, 3, 1),
+		_Utils_Tuple3(2, 3, 2),
+		_Utils_Tuple3(2, 3, 3),
+		_Utils_Tuple3(3, 0, 0),
+		_Utils_Tuple3(3, 0, 1),
+		_Utils_Tuple3(3, 0, 2),
+		_Utils_Tuple3(3, 0, 3),
+		_Utils_Tuple3(3, 1, 0),
+		_Utils_Tuple3(3, 1, 1),
+		_Utils_Tuple3(3, 1, 2),
+		_Utils_Tuple3(3, 1, 3),
+		_Utils_Tuple3(3, 2, 0),
+		_Utils_Tuple3(3, 2, 1),
+		_Utils_Tuple3(3, 2, 2),
+		_Utils_Tuple3(3, 2, 3),
+		_Utils_Tuple3(3, 3, 0),
+		_Utils_Tuple3(3, 3, 1),
+		_Utils_Tuple3(3, 3, 2),
+		_Utils_Tuple3(3, 3, 3)
+	]);
+var $author$project$Main$blocksTwo = _List_fromArray(
+	[
+		_Utils_Tuple3(1, 1, 1),
+		_Utils_Tuple3(1, 1, 2),
+		_Utils_Tuple3(1, 2, 1),
+		_Utils_Tuple3(1, 2, 2),
+		_Utils_Tuple3(2, 1, 1),
+		_Utils_Tuple3(2, 1, 2),
+		_Utils_Tuple3(2, 2, 1),
+		_Utils_Tuple3(2, 2, 2)
+	]);
 var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
 	return {$: 6, a: a};
 };
@@ -12873,70 +12945,67 @@ var $elm_explorations$webgl$WebGL$Mesh3 = F2(
 	});
 var $elm_explorations$webgl$WebGL$triangles = $elm_explorations$webgl$WebGL$Mesh3(
 	{bg: 3, br: 0, bM: 4});
-var $elm_explorations$linear_algebra$Math$Vector3$vec3 = _MJS_v3;
-var $author$project$Main$cubeMesh = function () {
-	var yellow = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 1, 0.85, 0);
-	var sp = 2;
-	var l = 0.5;
-	var lbb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, -l, -l);
-	var lbf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, -l, l);
-	var ltb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, l, -l);
-	var ltf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, l, l);
-	var rbb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, -l, -l);
-	var rbf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, -l, l);
-	var rtb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, l, -l);
-	var rtf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, l, l);
-	var gray = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0.6, 0.6, 0.6);
-	var cube = F2(
-		function (color, offset) {
-			return _List_fromArray(
-				[
-					A5(
-					$author$project$Main$face,
-					color,
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rtf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rbf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rbb, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rtb, offset)),
-					A5(
-					$author$project$Main$face,
-					color,
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rtf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rbf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, lbf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, ltf, offset)),
-					A5(
-					$author$project$Main$face,
-					color,
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rtf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, ltf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, ltb, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rtb, offset)),
-					A5(
-					$author$project$Main$face,
-					color,
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rbf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, lbf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, lbb, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rbb, offset)),
-					A5(
-					$author$project$Main$face,
-					color,
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, ltf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, lbf, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, lbb, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, ltb, offset)),
-					A5(
-					$author$project$Main$face,
-					color,
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rtb, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, rbb, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, lbb, offset),
-					A2($elm_explorations$linear_algebra$Math$Vector3$add, ltb, offset))
-				]);
-		});
-	var cubePos = F2(
-		function (color, _v0) {
+var $author$project$Main$cubeMesh = F2(
+	function (color, ls) {
+		var sp = 2;
+		var l = 0.5;
+		var lbb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, -l, -l);
+		var lbf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, -l, l);
+		var ltb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, l, -l);
+		var ltf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, -l, l, l);
+		var rbb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, -l, -l);
+		var rbf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, -l, l);
+		var rtb = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, l, -l);
+		var rtf = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, l, l, l);
+		var cube = F2(
+			function (c, offset) {
+				return _List_fromArray(
+					[
+						A5(
+						$author$project$Main$face,
+						c,
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rtf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rbf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rbb, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rtb, offset)),
+						A5(
+						$author$project$Main$face,
+						c,
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rtf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rbf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, lbf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, ltf, offset)),
+						A5(
+						$author$project$Main$face,
+						c,
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rtf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, ltf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, ltb, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rtb, offset)),
+						A5(
+						$author$project$Main$face,
+						c,
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rbf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, lbf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, lbb, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rbb, offset)),
+						A5(
+						$author$project$Main$face,
+						c,
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, ltf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, lbf, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, lbb, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, ltb, offset)),
+						A5(
+						$author$project$Main$face,
+						c,
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rtb, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, rbb, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, lbb, offset),
+						A2($elm_explorations$linear_algebra$Math$Vector3$add, ltb, offset))
+					]);
+			});
+		var cubePos = function (_v0) {
 			var x = _v0.a;
 			var y = _v0.b;
 			var z = _v0.c;
@@ -12944,330 +13013,12 @@ var $author$project$Main$cubeMesh = function () {
 				cube,
 				color,
 				A3($elm_explorations$linear_algebra$Math$Vector3$vec3, (((2 * x) - 3) * sp) / 2, (((2 * y) - 3) * sp) / 2, (((2 * z) - 3) * sp) / 2));
-		});
-	var black = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 0);
-	return $elm_explorations$webgl$WebGL$triangles(
-		$elm$core$List$concat(
-			_Utils_ap(
-				A2(
-					cubePos,
-					black,
-					_Utils_Tuple3(0, 0, 0)),
-				_Utils_ap(
-					A2(
-						cubePos,
-						black,
-						_Utils_Tuple3(0, 0, 1)),
-					_Utils_ap(
-						A2(
-							cubePos,
-							black,
-							_Utils_Tuple3(0, 0, 2)),
-						_Utils_ap(
-							A2(
-								cubePos,
-								black,
-								_Utils_Tuple3(0, 0, 3)),
-							_Utils_ap(
-								A2(
-									cubePos,
-									gray,
-									_Utils_Tuple3(0, 1, 0)),
-								_Utils_ap(
-									A2(
-										cubePos,
-										gray,
-										_Utils_Tuple3(0, 1, 1)),
-									_Utils_ap(
-										A2(
-											cubePos,
-											gray,
-											_Utils_Tuple3(0, 1, 2)),
-										_Utils_ap(
-											A2(
-												cubePos,
-												gray,
-												_Utils_Tuple3(0, 1, 3)),
-											_Utils_ap(
-												A2(
-													cubePos,
-													gray,
-													_Utils_Tuple3(0, 2, 0)),
-												_Utils_ap(
-													A2(
-														cubePos,
-														gray,
-														_Utils_Tuple3(0, 2, 1)),
-													_Utils_ap(
-														A2(
-															cubePos,
-															gray,
-															_Utils_Tuple3(0, 2, 2)),
-														_Utils_ap(
-															A2(
-																cubePos,
-																gray,
-																_Utils_Tuple3(0, 2, 3)),
-															_Utils_ap(
-																A2(
-																	cubePos,
-																	gray,
-																	_Utils_Tuple3(0, 3, 0)),
-																_Utils_ap(
-																	A2(
-																		cubePos,
-																		gray,
-																		_Utils_Tuple3(0, 3, 1)),
-																	_Utils_ap(
-																		A2(
-																			cubePos,
-																			gray,
-																			_Utils_Tuple3(0, 3, 2)),
-																		_Utils_ap(
-																			A2(
-																				cubePos,
-																				gray,
-																				_Utils_Tuple3(0, 3, 3)),
-																			_Utils_ap(
-																				A2(
-																					cubePos,
-																					black,
-																					_Utils_Tuple3(1, 0, 0)),
-																				_Utils_ap(
-																					A2(
-																						cubePos,
-																						black,
-																						_Utils_Tuple3(1, 0, 1)),
-																					_Utils_ap(
-																						A2(
-																							cubePos,
-																							black,
-																							_Utils_Tuple3(1, 0, 2)),
-																						_Utils_ap(
-																							A2(
-																								cubePos,
-																								black,
-																								_Utils_Tuple3(1, 0, 3)),
-																							_Utils_ap(
-																								A2(
-																									cubePos,
-																									gray,
-																									_Utils_Tuple3(1, 1, 0)),
-																								_Utils_ap(
-																									A2(
-																										cubePos,
-																										gray,
-																										_Utils_Tuple3(1, 1, 1)),
-																									_Utils_ap(
-																										A2(
-																											cubePos,
-																											gray,
-																											_Utils_Tuple3(1, 1, 2)),
-																										_Utils_ap(
-																											A2(
-																												cubePos,
-																												gray,
-																												_Utils_Tuple3(1, 1, 3)),
-																											_Utils_ap(
-																												A2(
-																													cubePos,
-																													gray,
-																													_Utils_Tuple3(1, 2, 0)),
-																												_Utils_ap(
-																													A2(
-																														cubePos,
-																														gray,
-																														_Utils_Tuple3(1, 2, 1)),
-																													_Utils_ap(
-																														A2(
-																															cubePos,
-																															gray,
-																															_Utils_Tuple3(1, 2, 2)),
-																														_Utils_ap(
-																															A2(
-																																cubePos,
-																																gray,
-																																_Utils_Tuple3(1, 2, 3)),
-																															_Utils_ap(
-																																A2(
-																																	cubePos,
-																																	gray,
-																																	_Utils_Tuple3(1, 3, 0)),
-																																_Utils_ap(
-																																	A2(
-																																		cubePos,
-																																		gray,
-																																		_Utils_Tuple3(1, 3, 1)),
-																																	_Utils_ap(
-																																		A2(
-																																			cubePos,
-																																			gray,
-																																			_Utils_Tuple3(1, 3, 2)),
-																																		_Utils_ap(
-																																			A2(
-																																				cubePos,
-																																				gray,
-																																				_Utils_Tuple3(1, 3, 3)),
-																																			_Utils_ap(
-																																				A2(
-																																					cubePos,
-																																					black,
-																																					_Utils_Tuple3(2, 0, 0)),
-																																				_Utils_ap(
-																																					A2(
-																																						cubePos,
-																																						black,
-																																						_Utils_Tuple3(2, 0, 1)),
-																																					_Utils_ap(
-																																						A2(
-																																							cubePos,
-																																							black,
-																																							_Utils_Tuple3(2, 0, 2)),
-																																						_Utils_ap(
-																																							A2(
-																																								cubePos,
-																																								black,
-																																								_Utils_Tuple3(2, 0, 3)),
-																																							_Utils_ap(
-																																								A2(
-																																									cubePos,
-																																									gray,
-																																									_Utils_Tuple3(2, 1, 0)),
-																																								_Utils_ap(
-																																									A2(
-																																										cubePos,
-																																										gray,
-																																										_Utils_Tuple3(2, 1, 1)),
-																																									_Utils_ap(
-																																										A2(
-																																											cubePos,
-																																											gray,
-																																											_Utils_Tuple3(2, 1, 2)),
-																																										_Utils_ap(
-																																											A2(
-																																												cubePos,
-																																												gray,
-																																												_Utils_Tuple3(2, 1, 3)),
-																																											_Utils_ap(
-																																												A2(
-																																													cubePos,
-																																													gray,
-																																													_Utils_Tuple3(2, 2, 0)),
-																																												_Utils_ap(
-																																													A2(
-																																														cubePos,
-																																														gray,
-																																														_Utils_Tuple3(2, 2, 1)),
-																																													_Utils_ap(
-																																														A2(
-																																															cubePos,
-																																															gray,
-																																															_Utils_Tuple3(2, 2, 2)),
-																																														_Utils_ap(
-																																															A2(
-																																																cubePos,
-																																																gray,
-																																																_Utils_Tuple3(2, 2, 3)),
-																																															_Utils_ap(
-																																																A2(
-																																																	cubePos,
-																																																	gray,
-																																																	_Utils_Tuple3(2, 3, 0)),
-																																																_Utils_ap(
-																																																	A2(
-																																																		cubePos,
-																																																		gray,
-																																																		_Utils_Tuple3(2, 3, 1)),
-																																																	_Utils_ap(
-																																																		A2(
-																																																			cubePos,
-																																																			gray,
-																																																			_Utils_Tuple3(2, 3, 2)),
-																																																		_Utils_ap(
-																																																			A2(
-																																																				cubePos,
-																																																				gray,
-																																																				_Utils_Tuple3(2, 3, 3)),
-																																																			_Utils_ap(
-																																																				A2(
-																																																					cubePos,
-																																																					black,
-																																																					_Utils_Tuple3(3, 0, 0)),
-																																																				_Utils_ap(
-																																																					A2(
-																																																						cubePos,
-																																																						black,
-																																																						_Utils_Tuple3(3, 0, 1)),
-																																																					_Utils_ap(
-																																																						A2(
-																																																							cubePos,
-																																																							black,
-																																																							_Utils_Tuple3(3, 0, 2)),
-																																																						_Utils_ap(
-																																																							A2(
-																																																								cubePos,
-																																																								black,
-																																																								_Utils_Tuple3(3, 0, 3)),
-																																																							_Utils_ap(
-																																																								A2(
-																																																									cubePos,
-																																																									gray,
-																																																									_Utils_Tuple3(3, 1, 0)),
-																																																								_Utils_ap(
-																																																									A2(
-																																																										cubePos,
-																																																										gray,
-																																																										_Utils_Tuple3(3, 1, 1)),
-																																																									_Utils_ap(
-																																																										A2(
-																																																											cubePos,
-																																																											gray,
-																																																											_Utils_Tuple3(3, 1, 2)),
-																																																										_Utils_ap(
-																																																											A2(
-																																																												cubePos,
-																																																												gray,
-																																																												_Utils_Tuple3(3, 1, 3)),
-																																																											_Utils_ap(
-																																																												A2(
-																																																													cubePos,
-																																																													gray,
-																																																													_Utils_Tuple3(3, 2, 0)),
-																																																												_Utils_ap(
-																																																													A2(
-																																																														cubePos,
-																																																														gray,
-																																																														_Utils_Tuple3(3, 2, 1)),
-																																																													_Utils_ap(
-																																																														A2(
-																																																															cubePos,
-																																																															gray,
-																																																															_Utils_Tuple3(3, 2, 2)),
-																																																														_Utils_ap(
-																																																															A2(
-																																																																cubePos,
-																																																																gray,
-																																																																_Utils_Tuple3(3, 2, 3)),
-																																																															_Utils_ap(
-																																																																A2(
-																																																																	cubePos,
-																																																																	gray,
-																																																																	_Utils_Tuple3(3, 3, 0)),
-																																																																_Utils_ap(
-																																																																	A2(
-																																																																		cubePos,
-																																																																		gray,
-																																																																		_Utils_Tuple3(3, 3, 1)),
-																																																																	_Utils_ap(
-																																																																		A2(
-																																																																			cubePos,
-																																																																			gray,
-																																																																			_Utils_Tuple3(3, 3, 2)),
-																																																																		A2(
-																																																																			cubePos,
-																																																																			gray,
-																																																																			_Utils_Tuple3(3, 3, 3)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
-}();
+		};
+		return $elm_explorations$webgl$WebGL$triangles(
+			$elm$core$List$concat(
+				$elm$core$List$concat(
+					A2($elm$core$List$map, cubePos, ls))));
+	});
 var $mdgriffith$elm_ui$Element$el = F2(
 	function (attrs, child) {
 		return A4(
@@ -13393,6 +13144,7 @@ var $mdgriffith$elm_ui$Element$Background$gradient = function (_v0) {
 		}
 	}
 };
+var $author$project$Main$gray = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0.6, 0.6, 0.6);
 var $elm$html$Html$Attributes$height = function (n) {
 	return A2(
 		_VirtualDom_attribute,
@@ -13781,7 +13533,7 @@ var $author$project$Main$view = function (theta) {
 				[
 					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
 					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-					$mdgriffith$elm_ui$Element$padding(10)
+					$mdgriffith$elm_ui$Element$padding(20)
 				]),
 			_List_fromArray(
 				[
@@ -13793,7 +13545,7 @@ var $author$project$Main$view = function (theta) {
 							A3($mdgriffith$elm_ui$Element$rgb, 1, 1, 1)),
 							$mdgriffith$elm_ui$Element$Font$size(50)
 						]),
-					$mdgriffith$elm_ui$Element$text('Hello Space')),
+					$mdgriffith$elm_ui$Element$text('Hello, Space!')),
 					A2(
 					$mdgriffith$elm_ui$Element$el,
 					_List_fromArray(
@@ -13820,7 +13572,13 @@ var $author$project$Main$view = function (theta) {
 										$elm_explorations$webgl$WebGL$entity,
 										$author$project$Main$vertexShader,
 										$author$project$Main$fragmentShader,
-										$author$project$Main$cubeMesh,
+										A2($author$project$Main$cubeMesh, $author$project$Main$gray, $author$project$Main$blocksTwo),
+										$author$project$Main$uniforms(theta)),
+										A4(
+										$elm_explorations$webgl$WebGL$entity,
+										$author$project$Main$vertexShader,
+										$author$project$Main$fragmentShader,
+										A2($author$project$Main$cubeMesh, $author$project$Main$black, $author$project$Main$blocksOne),
 										$author$project$Main$uniforms(theta))
 									])))))
 				])));
