@@ -7179,6 +7179,23 @@ var $elm$browser$Browser$AnimationManager$onAnimationFrameDelta = function (tagg
 };
 var $elm$browser$Browser$Events$onAnimationFrameDelta = $elm$browser$Browser$AnimationManager$onAnimationFrameDelta;
 var $elm$json$Json$Decode$value = _Json_decodeValue;
+var $mdgriffith$elm_ui$Internal$Model$Behind = 5;
+var $mdgriffith$elm_ui$Internal$Model$Nearby = F2(
+	function (a, b) {
+		return {$: 9, a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Model$NoAttribute = {$: 0};
+var $mdgriffith$elm_ui$Element$createNearby = F2(
+	function (loc, element) {
+		if (element.$ === 3) {
+			return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
+		} else {
+			return A2($mdgriffith$elm_ui$Internal$Model$Nearby, loc, element);
+		}
+	});
+var $mdgriffith$elm_ui$Element$behindContent = function (element) {
+	return A2($mdgriffith$elm_ui$Element$createNearby, 5, element);
+};
 var $elm_explorations$linear_algebra$Math$Vector3$vec3 = _MJS_v3;
 var $author$project$Main$black = A3($elm_explorations$linear_algebra$Math$Vector3$vec3, 0, 0, 0);
 var $author$project$Main$blocksOne = _List_fromArray(
@@ -13097,11 +13114,10 @@ var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
 };
 var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
 var $author$project$Main$fragmentShader = {
-	src: '\n\n        precision mediump float;\n        uniform float shade;\n        varying vec3 vcolor;\n        void main () {\n            gl_FragColor = shade * vec4(vcolor, 0.25);\n        }\n\n    ',
+	src: '\n\n        precision mediump float;\n        uniform float shade;\n        varying vec3 vcolor;\n        void main () {\n            gl_FragColor = shade * vec4(vcolor, 0.4);\n        }\n\n    ',
 	attributes: {},
 	uniforms: {shade: 'b4'}
 };
-var $mdgriffith$elm_ui$Internal$Model$NoAttribute = {$: 0};
 var $mdgriffith$elm_ui$Internal$Flag$bgColor = $mdgriffith$elm_ui$Internal$Flag$flag(8);
 var $mdgriffith$elm_ui$Internal$Flag$bgGradient = $mdgriffith$elm_ui$Internal$Flag$flag(10);
 var $mdgriffith$elm_ui$Element$Background$gradient = function (_v0) {
@@ -13556,7 +13572,29 @@ var $author$project$Main$view = function (theta) {
 					A2(
 						$mdgriffith$elm_ui$Element$el,
 						_List_fromArray(
-							[$mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
+							[
+								$mdgriffith$elm_ui$Element$centerX,
+								$mdgriffith$elm_ui$Element$centerY,
+								$mdgriffith$elm_ui$Element$behindContent(
+								$mdgriffith$elm_ui$Element$html(
+									A2(
+										$elm_explorations$webgl$WebGL$toHtml,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$width(600),
+												$elm$html$Html$Attributes$height(600),
+												A2($elm$html$Html$Attributes$style, 'display', 'block')
+											]),
+										_List_fromArray(
+											[
+												A4(
+												$elm_explorations$webgl$WebGL$entity,
+												$author$project$Main$vertexShader,
+												$author$project$Main$fragmentShader,
+												A2($author$project$Main$cubeMesh, $author$project$Main$black, $author$project$Main$blocksOne),
+												$author$project$Main$uniforms(theta))
+											]))))
+							]),
 						$mdgriffith$elm_ui$Element$html(
 							A2(
 								$elm_explorations$webgl$WebGL$toHtml,
@@ -13573,12 +13611,6 @@ var $author$project$Main$view = function (theta) {
 										$author$project$Main$vertexShader,
 										$author$project$Main$fragmentShader,
 										A2($author$project$Main$cubeMesh, $author$project$Main$gray, $author$project$Main$blocksTwo),
-										$author$project$Main$uniforms(theta)),
-										A4(
-										$elm_explorations$webgl$WebGL$entity,
-										$author$project$Main$vertexShader,
-										$author$project$Main$fragmentShader,
-										A2($author$project$Main$cubeMesh, $author$project$Main$black, $author$project$Main$blocksOne),
 										$author$project$Main$uniforms(theta))
 									])))))
 				])));

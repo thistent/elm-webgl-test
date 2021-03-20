@@ -88,6 +88,19 @@ view theta =
                 El.el
                     [ El.centerX
                     , El.centerY
+                    , El.behindContent <|
+                        El.html <|
+                            WebGL.toHtml
+                                [ width 600
+                                , height 600
+                                , style "display" "block"
+                                ]
+                                [ WebGL.entity
+                                    vertexShader
+                                    fragmentShader
+                                    (cubeMesh black blocksOne)
+                                    (uniforms theta)
+                                ]
                     ]
                 <|
                     El.html <|
@@ -100,11 +113,6 @@ view theta =
                                 vertexShader
                                 fragmentShader
                                 (cubeMesh gray blocksTwo)
-                                (uniforms theta)
-                            , WebGL.entity
-                                vertexShader
-                                fragmentShader
-                                (cubeMesh black blocksOne)
                                 (uniforms theta)
                             ]
             ]
@@ -344,7 +352,7 @@ fragmentShader =
         uniform float shade;
         varying vec3 vcolor;
         void main () {
-            gl_FragColor = shade * vec4(vcolor, 0.25);
+            gl_FragColor = shade * vec4(vcolor, 0.4);
         }
 
     |]
