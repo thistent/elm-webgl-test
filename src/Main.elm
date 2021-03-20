@@ -201,6 +201,17 @@ blocksTwo =
             ]
                 |> List.map (\( x, y, z ) -> Vertex yellow (vec3 x y z))
            )
+        ++ ([ ( 0, 0, 0 )
+            , ( 0, 0, 3 )
+            , ( 0, 3, 0 )
+            , ( 0, 3, 3 )
+            , ( 3, 0, 0 )
+            , ( 3, 0, 3 )
+            , ( 3, 3, 0 )
+            , ( 3, 3, 3 )
+            ]
+                |> List.map (\( x, y, z ) -> Vertex black (vec3 x y z))
+           )
 
 
 type alias Uniforms =

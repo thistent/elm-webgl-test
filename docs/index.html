@@ -7225,22 +7225,45 @@ var $author$project$Main$blocksTwo = _Utils_ap(
 				_Utils_Tuple3(2, 1, 2),
 				_Utils_Tuple3(2, 2, 1)
 			])),
-	A2(
-		$elm$core$List$map,
-		function (_v1) {
-			var x = _v1.a;
-			var y = _v1.b;
-			var z = _v1.c;
-			return A2(
-				$author$project$Main$Vertex,
-				$author$project$Main$yellow,
-				A3($elm_explorations$linear_algebra$Math$Vector3$vec3, x, y, z));
-		},
-		_List_fromArray(
-			[
-				_Utils_Tuple3(1, 1, 1),
-				_Utils_Tuple3(2, 2, 2)
-			])));
+	_Utils_ap(
+		A2(
+			$elm$core$List$map,
+			function (_v1) {
+				var x = _v1.a;
+				var y = _v1.b;
+				var z = _v1.c;
+				return A2(
+					$author$project$Main$Vertex,
+					$author$project$Main$yellow,
+					A3($elm_explorations$linear_algebra$Math$Vector3$vec3, x, y, z));
+			},
+			_List_fromArray(
+				[
+					_Utils_Tuple3(1, 1, 1),
+					_Utils_Tuple3(2, 2, 2)
+				])),
+		A2(
+			$elm$core$List$map,
+			function (_v2) {
+				var x = _v2.a;
+				var y = _v2.b;
+				var z = _v2.c;
+				return A2(
+					$author$project$Main$Vertex,
+					$author$project$Main$black,
+					A3($elm_explorations$linear_algebra$Math$Vector3$vec3, x, y, z));
+			},
+			_List_fromArray(
+				[
+					_Utils_Tuple3(0, 0, 0),
+					_Utils_Tuple3(0, 0, 3),
+					_Utils_Tuple3(0, 3, 0),
+					_Utils_Tuple3(0, 3, 3),
+					_Utils_Tuple3(3, 0, 0),
+					_Utils_Tuple3(3, 0, 3),
+					_Utils_Tuple3(3, 3, 0),
+					_Utils_Tuple3(3, 3, 3)
+				]))));
 var $author$project$Main$blocksOne = _Utils_ap(
 	A2(
 		$elm$core$List$map,
