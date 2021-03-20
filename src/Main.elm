@@ -13,6 +13,18 @@ import Math.Vector3 as Vec3 exposing (Vec3, vec3)
 import WebGL exposing (Mesh, Shader)
 
 
+black =
+    vec3 0 0 0
+
+
+gray =
+    vec3 0.6 0.6 0.6
+
+
+yellow =
+    vec3 1 0.85 0
+
+
 xLength : Int
 xLength =
     4
@@ -63,13 +75,13 @@ view theta =
         ]
     <|
         El.column
-            [ El.width El.fill, El.height El.fill, El.padding 10 ]
+            [ El.width El.fill, El.height El.fill, El.padding 20 ]
             [ El.el
                 [ Font.color <| El.rgb 1 1 1
                 , Font.size 50
                 ]
               <|
-                El.text "Hello Space"
+                El.text "Hello, Space!"
             , El.el
                 [ El.width El.fill, El.height El.fill ]
               <|
@@ -87,10 +99,91 @@ view theta =
                             [ WebGL.entity
                                 vertexShader
                                 fragmentShader
-                                cubeMesh
+                                (cubeMesh gray blocksTwo)
+                                (uniforms theta)
+                            , WebGL.entity
+                                vertexShader
+                                fragmentShader
+                                (cubeMesh black blocksOne)
                                 (uniforms theta)
                             ]
             ]
+
+
+blocksOne : List ( Float, Float, Float )
+blocksOne =
+    [ ( 0, 0, 0 )
+    , ( 0, 0, 1 )
+    , ( 0, 0, 2 )
+    , ( 0, 0, 3 )
+    , ( 0, 1, 0 )
+    , ( 0, 1, 1 )
+    , ( 0, 1, 2 )
+    , ( 0, 1, 3 )
+    , ( 0, 2, 0 )
+    , ( 0, 2, 1 )
+    , ( 0, 2, 2 )
+    , ( 0, 2, 3 )
+    , ( 0, 3, 0 )
+
+    -- yellow
+    , ( 0, 3, 1 )
+    , ( 0, 3, 2 )
+    , ( 0, 3, 3 )
+    , ( 1, 0, 0 )
+    , ( 1, 0, 1 )
+    , ( 1, 0, 2 )
+    , ( 1, 0, 3 )
+    , ( 1, 1, 0 )
+    , ( 1, 1, 3 )
+    , ( 1, 2, 0 )
+    , ( 1, 2, 3 )
+    , ( 1, 3, 0 )
+    , ( 1, 3, 1 )
+    , ( 1, 3, 2 )
+    , ( 1, 3, 3 )
+    , ( 2, 0, 0 )
+    , ( 2, 0, 1 )
+    , ( 2, 0, 2 )
+    , ( 2, 0, 3 )
+    , ( 2, 1, 0 )
+    , ( 2, 1, 3 )
+    , ( 2, 2, 0 )
+    , ( 2, 2, 3 )
+    , ( 2, 3, 0 )
+    , ( 2, 3, 1 )
+    , ( 2, 3, 2 )
+    , ( 2, 3, 3 )
+    , ( 3, 0, 0 )
+    , ( 3, 0, 1 )
+    , ( 3, 0, 2 )
+    , ( 3, 0, 3 )
+    , ( 3, 1, 0 )
+    , ( 3, 1, 1 )
+    , ( 3, 1, 2 )
+    , ( 3, 1, 3 )
+    , ( 3, 2, 0 )
+    , ( 3, 2, 1 )
+    , ( 3, 2, 2 )
+    , ( 3, 2, 3 )
+    , ( 3, 3, 0 )
+    , ( 3, 3, 1 )
+    , ( 3, 3, 2 )
+    , ( 3, 3, 3 )
+    ]
+
+
+blocksTwo : List ( Float, Float, Float )
+blocksTwo =
+    [ ( 1, 1, 1 )
+    , ( 1, 1, 2 )
+    , ( 1, 2, 1 )
+    , ( 1, 2, 2 )
+    , ( 2, 1, 1 )
+    , ( 2, 1, 2 )
+    , ( 2, 2, 1 )
+    , ( 2, 2, 2 )
+    ]
 
 
 type alias Uniforms =
@@ -123,8 +216,8 @@ type alias Vertex =
     }
 
 
-cubeMesh : Mesh Vertex
-cubeMesh =
+cubeMesh : Vec3 -> List ( Float, Float, Float ) -> Mesh Vertex
+cubeMesh color ls =
     let
         sp =
             2
@@ -157,38 +250,38 @@ cubeMesh =
             vec3 -l -l -l
 
         cube : Vec3 -> Vec3 -> List (List ( Vertex, Vertex, Vertex ))
-        cube color offset =
-            [ face color
+        cube c offset =
+            [ face c
                 -- red right
                 (Vec3.add rtf offset)
                 (Vec3.add rbf offset)
                 (Vec3.add rbb offset)
                 (Vec3.add rtb offset)
-            , face color
+            , face c
                 -- aqua front
                 (Vec3.add rtf offset)
                 (Vec3.add rbf offset)
                 (Vec3.add lbf offset)
                 (Vec3.add ltf offset)
-            , face color
+            , face c
                 -- yellow top
                 (Vec3.add rtf offset)
                 (Vec3.add ltf offset)
                 (Vec3.add ltb offset)
                 (Vec3.add rtb offset)
-            , face color
+            , face c
                 -- green bottom
                 (Vec3.add rbf offset)
                 (Vec3.add lbf offset)
                 (Vec3.add lbb offset)
                 (Vec3.add rbb offset)
-            , face color
+            , face c
                 -- purple left
                 (Vec3.add ltf offset)
                 (Vec3.add lbf offset)
                 (Vec3.add lbb offset)
                 (Vec3.add ltb offset)
-            , face color
+            , face c
                 -- blue back
                 (Vec3.add rtb offset)
                 (Vec3.add rbb offset)
@@ -196,88 +289,16 @@ cubeMesh =
                 (Vec3.add ltb offset)
             ]
 
-        cubePos color ( x, y, z ) =
+        cubePos ( x, y, z ) =
             cube color
                 (vec3 ((2 * x - 3) * sp / 2)
                     ((2 * y - 3) * sp / 2)
                     ((2 * z - 3) * sp / 2)
                 )
-
-        black =
-            vec3 0 0 0
-
-        gray =
-            vec3 0.6 0.6 0.6
-
-        yellow =
-            vec3 1 0.85 0
     in
-    (cubePos black ( 0, 0, 0 )
-        ++ cubePos black ( 0, 0, 1 )
-        ++ cubePos black ( 0, 0, 2 )
-        ++ cubePos black ( 0, 0, 3 )
-        ++ cubePos gray ( 0, 1, 0 )
-        ++ cubePos gray ( 0, 1, 1 )
-        ++ cubePos gray ( 0, 1, 2 )
-        ++ cubePos gray ( 0, 1, 3 )
-        ++ cubePos gray ( 0, 2, 0 )
-        ++ cubePos gray ( 0, 2, 1 )
-        ++ cubePos gray ( 0, 2, 2 )
-        ++ cubePos gray ( 0, 2, 3 )
-        ++ cubePos gray ( 0, 3, 0 )
-        -- yellow
-        ++ cubePos gray ( 0, 3, 1 )
-        ++ cubePos gray ( 0, 3, 2 )
-        ++ cubePos gray ( 0, 3, 3 )
-        ++ cubePos black ( 1, 0, 0 )
-        ++ cubePos black ( 1, 0, 1 )
-        ++ cubePos black ( 1, 0, 2 )
-        ++ cubePos black ( 1, 0, 3 )
-        ++ cubePos gray ( 1, 1, 0 )
-        ++ cubePos gray ( 1, 1, 1 )
-        ++ cubePos gray ( 1, 1, 2 )
-        ++ cubePos gray ( 1, 1, 3 )
-        ++ cubePos gray ( 1, 2, 0 )
-        ++ cubePos gray ( 1, 2, 1 )
-        ++ cubePos gray ( 1, 2, 2 )
-        ++ cubePos gray ( 1, 2, 3 )
-        ++ cubePos gray ( 1, 3, 0 )
-        ++ cubePos gray ( 1, 3, 1 )
-        ++ cubePos gray ( 1, 3, 2 )
-        ++ cubePos gray ( 1, 3, 3 )
-        ++ cubePos black ( 2, 0, 0 )
-        ++ cubePos black ( 2, 0, 1 )
-        ++ cubePos black ( 2, 0, 2 )
-        ++ cubePos black ( 2, 0, 3 )
-        ++ cubePos gray ( 2, 1, 0 )
-        ++ cubePos gray ( 2, 1, 1 )
-        ++ cubePos gray ( 2, 1, 2 )
-        ++ cubePos gray ( 2, 1, 3 )
-        ++ cubePos gray ( 2, 2, 0 )
-        ++ cubePos gray ( 2, 2, 1 )
-        ++ cubePos gray ( 2, 2, 2 )
-        ++ cubePos gray ( 2, 2, 3 )
-        ++ cubePos gray ( 2, 3, 0 )
-        ++ cubePos gray ( 2, 3, 1 )
-        ++ cubePos gray ( 2, 3, 2 )
-        ++ cubePos gray ( 2, 3, 3 )
-        ++ cubePos black ( 3, 0, 0 )
-        ++ cubePos black ( 3, 0, 1 )
-        ++ cubePos black ( 3, 0, 2 )
-        ++ cubePos black ( 3, 0, 3 )
-        ++ cubePos gray ( 3, 1, 0 )
-        ++ cubePos gray ( 3, 1, 1 )
-        ++ cubePos gray ( 3, 1, 2 )
-        ++ cubePos gray ( 3, 1, 3 )
-        ++ cubePos gray ( 3, 2, 0 )
-        ++ cubePos gray ( 3, 2, 1 )
-        ++ cubePos gray ( 3, 2, 2 )
-        ++ cubePos gray ( 3, 2, 3 )
-        ++ cubePos gray ( 3, 3, 0 )
-        ++ cubePos gray ( 3, 3, 1 )
-        ++ cubePos gray ( 3, 3, 2 )
-        ++ cubePos gray ( 3, 3, 3 )
-    )
+    ls
+        |> List.map cubePos
+        |> List.concat
         |> List.concat
         |> WebGL.triangles
 
