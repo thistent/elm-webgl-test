@@ -98,7 +98,7 @@ view theta =
                                 [ WebGL.entity
                                     vertexShader
                                     fragmentShader
-                                    (cubeMesh black blocksOne)
+                                    (cubeMesh blocksOne)
                                     (uniforms theta)
                                 ]
                     ]
@@ -112,86 +112,95 @@ view theta =
                             [ WebGL.entity
                                 vertexShader
                                 fragmentShader
-                                (cubeMesh gray blocksTwo)
+                                (cubeMesh blocksTwo)
                                 (uniforms theta)
                             ]
             ]
 
 
-blocksOne : List ( Float, Float, Float )
+blocksOne : List Vertex
 blocksOne =
-    [ ( 0, 0, 0 )
-    , ( 0, 0, 1 )
-    , ( 0, 0, 2 )
-    , ( 0, 0, 3 )
-    , ( 0, 1, 0 )
-    , ( 0, 1, 1 )
-    , ( 0, 1, 2 )
-    , ( 0, 1, 3 )
-    , ( 0, 2, 0 )
-    , ( 0, 2, 1 )
-    , ( 0, 2, 2 )
-    , ( 0, 2, 3 )
-    , ( 0, 3, 0 )
+    ([ ( 0, 0, 0 )
+     , ( 0, 0, 1 )
+     , ( 0, 0, 2 )
+     , ( 0, 0, 3 )
+     , ( 0, 1, 0 )
+     , ( 0, 1, 1 )
+     , ( 0, 1, 2 )
+     , ( 0, 1, 3 )
+     , ( 0, 2, 0 )
+     , ( 0, 2, 1 )
+     , ( 0, 2, 2 )
+     , ( 0, 2, 3 )
+     , ( 0, 3, 0 )
+     , ( 0, 3, 1 )
+     , ( 0, 3, 2 )
+     , ( 0, 3, 3 )
+     , ( 1, 0, 0 )
+     , ( 1, 0, 1 )
+     , ( 1, 0, 2 )
+     , ( 1, 0, 3 )
+     , ( 1, 1, 0 )
 
-    -- yellow
-    , ( 0, 3, 1 )
-    , ( 0, 3, 2 )
-    , ( 0, 3, 3 )
-    , ( 1, 0, 0 )
-    , ( 1, 0, 1 )
-    , ( 1, 0, 2 )
-    , ( 1, 0, 3 )
-    , ( 1, 1, 0 )
-    , ( 1, 1, 3 )
-    , ( 1, 2, 0 )
-    , ( 1, 2, 3 )
-    , ( 1, 3, 0 )
-    , ( 1, 3, 1 )
-    , ( 1, 3, 2 )
-    , ( 1, 3, 3 )
-    , ( 2, 0, 0 )
-    , ( 2, 0, 1 )
-    , ( 2, 0, 2 )
-    , ( 2, 0, 3 )
-    , ( 2, 1, 0 )
-    , ( 2, 1, 3 )
-    , ( 2, 2, 0 )
-    , ( 2, 2, 3 )
-    , ( 2, 3, 0 )
-    , ( 2, 3, 1 )
-    , ( 2, 3, 2 )
-    , ( 2, 3, 3 )
-    , ( 3, 0, 0 )
-    , ( 3, 0, 1 )
-    , ( 3, 0, 2 )
-    , ( 3, 0, 3 )
-    , ( 3, 1, 0 )
-    , ( 3, 1, 1 )
-    , ( 3, 1, 2 )
-    , ( 3, 1, 3 )
-    , ( 3, 2, 0 )
-    , ( 3, 2, 1 )
-    , ( 3, 2, 2 )
-    , ( 3, 2, 3 )
-    , ( 3, 3, 0 )
-    , ( 3, 3, 1 )
-    , ( 3, 3, 2 )
-    , ( 3, 3, 3 )
-    ]
+     --
+     --
+     , ( 1, 1, 3 )
+     , ( 1, 2, 0 )
+     , ( 1, 2, 3 )
+     , ( 1, 3, 0 )
+     , ( 1, 3, 1 )
+     , ( 1, 3, 2 )
+     , ( 1, 3, 3 )
+     , ( 2, 0, 0 )
+     , ( 2, 0, 1 )
+     , ( 2, 0, 2 )
+     , ( 2, 0, 3 )
+     , ( 2, 1, 0 )
+     , ( 2, 1, 3 )
+     , ( 2, 2, 0 )
+     , ( 2, 2, 3 )
+     , ( 2, 3, 0 )
+     , ( 2, 3, 1 )
+     , ( 2, 3, 2 )
+     , ( 2, 3, 3 )
+     , ( 3, 0, 0 )
+     , ( 3, 0, 1 )
+     , ( 3, 0, 2 )
+     , ( 3, 0, 3 )
+     , ( 3, 1, 0 )
+     , ( 3, 1, 1 )
+     , ( 3, 1, 2 )
+     , ( 3, 1, 3 )
+     , ( 3, 2, 0 )
+     , ( 3, 2, 1 )
+     , ( 3, 2, 2 )
+     , ( 3, 2, 3 )
+     , ( 3, 3, 0 )
+     , ( 3, 3, 1 )
+     , ( 3, 3, 2 )
+     , ( 3, 3, 3 )
+     ]
+        |> List.map (\( x, y, z ) -> Vertex black (vec3 x y z))
+    )
+        ++ blocksTwo
 
 
-blocksTwo : List ( Float, Float, Float )
+blocksTwo : List Vertex
 blocksTwo =
-    [ ( 1, 1, 1 )
-    , ( 1, 1, 2 )
-    , ( 1, 2, 1 )
-    , ( 1, 2, 2 )
-    , ( 2, 1, 1 )
-    , ( 2, 1, 2 )
-    , ( 2, 2, 1 )
-    , ( 2, 2, 2 )
-    ]
+    ([ ( 1, 1, 2 )
+     , ( 1, 2, 1 )
+     , ( 1, 2, 2 )
+     , ( 2, 1, 1 )
+     , ( 2, 1, 2 )
+     , ( 2, 2, 1 )
+     ]
+        |> List.map (\( x, y, z ) -> Vertex gray (vec3 x y z))
+    )
+        ++ ([ ( 1, 1, 1 )
+            , ( 2, 2, 2 )
+            ]
+                |> List.map (\( x, y, z ) -> Vertex yellow (vec3 x y z))
+           )
 
 
 type alias Uniforms =
@@ -224,8 +233,8 @@ type alias Vertex =
     }
 
 
-cubeMesh : Vec3 -> List ( Float, Float, Float ) -> Mesh Vertex
-cubeMesh color ls =
+cubeMesh : List Vertex -> Mesh Vertex
+cubeMesh vs =
     let
         sp =
             2
@@ -297,14 +306,28 @@ cubeMesh color ls =
                 (Vec3.add ltb offset)
             ]
 
-        cubePos ( x, y, z ) =
-            cube color
+        cubePos : Vertex -> List (List ( Vertex, Vertex, Vertex ))
+        cubePos v =
+            let
+                pos =
+                    v.position
+
+                x =
+                    Vec3.getX pos
+
+                y =
+                    Vec3.getY pos
+
+                z =
+                    Vec3.getZ pos
+            in
+            cube v.color
                 (vec3 ((2 * x - 3) * sp / 2)
                     ((2 * y - 3) * sp / 2)
                     ((2 * z - 3) * sp / 2)
                 )
     in
-    ls
+    vs
         |> List.map cubePos
         |> List.concat
         |> List.concat
@@ -352,7 +375,7 @@ fragmentShader =
         uniform float shade;
         varying vec3 vcolor;
         void main () {
-            gl_FragColor = shade * vec4(vcolor, 0.4);
+            gl_FragColor = shade * vec4(vcolor, 0.35);
         }
 
     |]
